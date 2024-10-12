@@ -36,6 +36,9 @@ const UpdateCoffee = () => {
     
     return (
         <form onSubmit={handleUpdateCoffee}>
+            <h1>this is update page 
+                
+            </h1>
             <div className=' bg-[#F4F3F0] p-24'>
                 <div className=' lg:flex justify-between'>
                     <div className="join w-full m-5 form-control">
