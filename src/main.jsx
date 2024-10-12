@@ -16,7 +16,7 @@ import MyList from './productPage.jsx';
 import Home from './Components/Home.jsx';
 import SpotCardDetails from './SpotCardDetails.jsx';
 import CountriesSection from './Components/CountriesSection.jsx';
-import Indonesia from './Components/Indonesia.jsx';
+// import Indonesia from './Components/Indonesia.jsx';
 import Notfound from './Components/Notfound.jsx';
 import Thailand from './Components/Thailand';
 import PrivateRoute from './Components/Providers/PrivateRoute.jsx';
@@ -83,26 +83,10 @@ const router = createBrowserRouter([
         element:<Thailand></Thailand>,
         loader: ()=> fetch("http://localhost:5000/product"),
       },
-      {
-        path:"Indonesia",
-        element:<Indonesia></Indonesia>,
-        loader: ()=> fetch("http://localhost:5000/product"),
-      },
-      {
-        path:"Malaysia",
-        element:<Indonesia></Indonesia>,
-        loader: ()=> fetch("http://localhost:5000/product"),
-      },
-      {
-        path:"Vietnam",
-        element:<Indonesia></Indonesia>,
-        loader: ()=> fetch("http://localhost:5000/product"),
-      },
-      {
-        path:"Cambodia",
-        element:<Indonesia></Indonesia>,
-        loader: ()=> fetch("http://localhost:5000/product"),
-      },
+      
+      
+      
+      
     ]
   },
 ]);
