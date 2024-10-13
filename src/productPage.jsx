@@ -9,6 +9,7 @@ const ProductPage = () => {
     const loadedUsers = useLoaderData();
     const email = user?.email;
     const [users, setUsers] = useState(loadedUsers);
+
     useEffect(() => {
         const fetchData = async () => {
             if (!email) return;
@@ -26,7 +27,7 @@ const ProductPage = () => {
         };
 
         fetchData();
-    }, [users]);
+    }, [email]);
 
     const addProduct = (newProduct) => {
         setUsers(prevUsers => [...prevUsers, newProduct]);
@@ -70,23 +71,42 @@ const ProductPage = () => {
     };
 
     return (
-        <div>
+        <div className="container mx-auto px-4 py-8">
             <AddSpot addProduct={addProduct} />
-            <div className="grid gap-4 m-5 md:grid-cols-2 lg:grid-cols-3 grid-cols-1">
-                {users.map(item => (
-                    <div key={item._id} className="card card-compact shadow-xl">
-                        <div className="card-body">
-                            <h2 className="card-title">{item.productName}</h2>
-                            <h2 className="card-title">{item.category}</h2>
-                            <h2 className="card-title">{item.cost}</h2>
-                            <div className="flex justify-around">
-                                <Link to={`/updateproduct/${item._id}`} className="btn join-item">Edit</Link>
-                                <button onClick={() => handleDelete(item._id)} className='btn w-[100px] bg-red-500 text-white'>X</button>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-                {users.length === 0 && <p>No Data found. Please check your data.</p>}
+            <div className="overflow-x-auto mt-6">
+                {users.length > 0 ? (
+                    <table className="table-auto w-full bg-white shadow-lg rounded-lg">
+                        <thead className="bg-gray-200 text-gray-600">
+                            <tr>
+                                <th className="px-4 py-2">Product Name</th>
+                                <th className="px-4 py-2">Category</th>
+                                <th className="px-4 py-2">Cost</th>
+                                <th className="px-4 py-2">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {users.map((item) => (
+                                <tr key={item._id} className="border-t">Product Name
+
+                                    <td className="px-4 py-2">{item.productName}</td>
+                                    <td className="px-4 py-2">{item.category}</td>
+                                    <td className="px-4 py-2">{item.cost}</td>
+                                    <td className="px-4 py-2 flex justify-around">
+                                        <Link to={`/updateproduct/${item._id}`} className="btn bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded">Edit</Link>
+                                        <button
+                                            onClick={() => handleDelete(item._id)}
+                                            className="btn bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded"
+                                        >
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                ) : (
+                    <p className="text-center text-gray-600">No Data found. Please check your data.</p>
+                )}
             </div>
         </div>
     );

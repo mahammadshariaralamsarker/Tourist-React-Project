@@ -13,13 +13,10 @@ import Root from './Components/Root.jsx';
 import AllSpot from './Components/AllSpot.jsx';
 import AddSpot from './Components/AddProduct.jsx';
 import MyList from './productPage.jsx';
-// import CategoricalPage from './CategoricalPage.jsx';
 import Home from './Components/Home.jsx';
 import SpotCardDetails from './SpotCardDetails.jsx';
 import CountriesSection from './Components/CountriesSection.jsx';
-// import Indonesia from './Components/Indonesia.jsx';
 import Notfound from './Components/Notfound.jsx';
-import Thailand from './Components/Thailand';
 import PrivateRoute from './Components/Providers/PrivateRoute.jsx';
 import CategoricalPage from './Components/CategoricalPage.jsx';
 import UpdateCategory from './Components/UpdateCategory.jsx';
@@ -94,11 +91,6 @@ const router = createBrowserRouter([
         element:<CountriesSection></CountriesSection>,
         loader: ()=> fetch("http://localhost:5000/product"),
       },
-      {
-        path:"thailand",
-        element:<Thailand></Thailand>,
-        loader: ()=> fetch("http://localhost:5000/product"),
-      }
     ]
   },
 ]);

@@ -33,12 +33,6 @@ const Navbar = () => {
               <NavLink className="btn" to="/">
                 Home
               </NavLink>
-              <NavLink className="btn mt-3" to="/allSpot">
-                All Tourists Spot
-              </NavLink>
-              <NavLink className="btn mt-3" to="/addSpot">
-                Add Tourists Spot
-              </NavLink>
               <NavLink className="btn mt-3" to="/mylist">
                 Product
               </NavLink>
@@ -48,8 +42,14 @@ const Navbar = () => {
               <NavLink className="btn mt-3" to="/report">
                 Report
               </NavLink>
-              <NavLink className="btn mt-3" to="/signup">
-                Signup
+              <NavLink className="btn mt-3" to="/report">
+                {user ? (
+                  <button onClick={logOut}>Logout</button>
+                ) : (
+                  <Link to="/signup">
+                    <button className="btn btn-sm  ">Login</button>
+                  </Link>
+                )}
               </NavLink>
             </ul>
           </div>
@@ -59,44 +59,23 @@ const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal my-4 z-20 px-1 ">
-            <NavLink
-              className="btn mx-4"
-              to="/"
-            >
+            <NavLink className="btn mx-4" to="/">
               Home
             </NavLink>
-            <NavLink
-              className="btn mx-4"
-              to="/allSpot"
-            >
-              All Tourists Spot
-            </NavLink>
-            <NavLink
-              className="btn mx-4"
-              to="/addSpot"
-            >
-              Add Tourists Spot
-            </NavLink>
-            <NavLink
-              className="btn mx-4"
-              to="/mylist"
-            >
+            <NavLink className="btn mx-2" to="/mylist">
               Product
             </NavLink>
-            <NavLink className="btn " to="/category">
-                Category
-              </NavLink>
-              <NavLink className="btn " to="/report">
-                Report
-              </NavLink>
+            <NavLink className="btn mx-2" to="/category">
+              Category
+            </NavLink>
+            <NavLink className="btn mx-2" to="/report">
+              Report
+            </NavLink>
           </ul>
         </div>
         <div className="navbar-end">
           {user ? (
-            <div
-              className="dropdown dropdown-end"
-
-            >
+            <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
                   <img

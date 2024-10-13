@@ -29,7 +29,7 @@ const AddSpot = () => {
                 if (data.acknowledged) {
                     Swal.fire({
                         title: "Success!",
-                        text: "Tourist Spot Added Successfully",
+                        text: "Product Added Successfully",
                         icon: "success",
                     });
                     form.reset();
@@ -39,50 +39,61 @@ const AddSpot = () => {
     };
 
     return (
-        <form onSubmit={handleAddCoffee}>
-            <h1>This is the add product page</h1>
-            <div className="bg-[#F4F3F0] p-24">
-                <div className="lg:flex justify-between">
-                    <div className="join w-full m-5 form-control">
-                        <h1 className="flex items-center mr-4">Product Name</h1>
-                        <input
-                            name="productName"
-                            className="input input-bordered join-item flex-1 p-2"
-                            placeholder="Tourists Spot Name"
-                        />
-                    </div>
-                    <div className="join w-full m-5 form-control">
-                        <h1 className="flex items-center mr-4">Product Cost</h1>
-                        <input
-                            name="Cost"
-                            className="input p-2 input-bordered join-item flex-1"
-                            placeholder="Product Cost"
-                        />
-                    </div>
+        <form onSubmit={handleAddCoffee} className="max-w-4xl mx-auto bg-white p-10 shadow-lg rounded-lg">
+            <h1 className="text-3xl font-bold mb-8 text-center">Add New Tourist Spot</h1>
+            <div className="lg:flex justify-between gap-4">
+                {/* Product Name */}
+                <div className="form-control w-full mb-6 lg:mb-0">
+                    <label className="text-lg font-semibold mb-2">Product Name</label>
+                    <input
+                        name="productName"
+                        className="input input-bordered w-full p-3"
+                        placeholder="Tourist Spot Name"
+                        required
+                    />
                 </div>
-                <div className="lg:flex justify-between">
-                    <div className="join w-full m-5 form-control">
-                        <h1 className="flex items-center mr-4">Category Name</h1>
-                        <input
-                            name="category"
-                            className="input input-bordered p-2 join-item flex-1"
-                            placeholder="Country Name"
-                        />
-                    </div>
+
+                {/* Product Cost */}
+                <div className="form-control w-full mb-6 lg:mb-0">
+                    <label className="text-lg font-semibold mb-2">Product Cost</label>
+                    <input
+                        name="Cost"
+                        className="input input-bordered w-full p-3"
+                        placeholder="Product Cost"
+                        required
+                    />
                 </div>
-                <div className="lg:flex justify-between">
-                    <div className="join w-full m-5 form-control">
-                        <h1 className="flex items-center mr-4">Date</h1>
-                        <DatePicker
-                            selected={selectedDate}
-                            onChange={(date) => setSelectedDate(date)}
-                            className="input input-bordered p-2 join-item flex-1"
-                            placeholderText="Select Date"
-                        />
-                    </div>
+            </div>
+
+            <div className="lg:flex justify-between gap-4">
+                {/* Category Name */}
+                <div className="form-control w-full mb-6 lg:mb-0">
+                    <label className="text-lg font-semibold mb-2">Category</label>
+                    <input
+                        name="category"
+                        className="input input-bordered w-full p-3"
+                        placeholder="Category Name"
+                        required
+                    />
                 </div>
+
+                {/* Date */}
+                <div className="form-control w-full">
+                    <label className="text-lg font-semibold mb-2">Date</label>
+                    <DatePicker
+                        selected={selectedDate}
+                        onChange={(date) => setSelectedDate(date)}
+                        className="input input-bordered w-full p-3"
+                        placeholderText="Select Date"
+                        required
+                    />
+                </div>
+            </div>
+
+            {/* Submit Button */}
+            <div className="mt-8">
                 <input
-                    className="btn btn-block bg-primary text-white mx-5"
+                    className="btn btn-primary w-full py-3 font-semibold text-lg"
                     type="submit"
                     value="Add Spot"
                 />
