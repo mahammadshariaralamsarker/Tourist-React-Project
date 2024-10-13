@@ -23,6 +23,7 @@ import Thailand from './Components/Thailand';
 import PrivateRoute from './Components/Providers/PrivateRoute.jsx';
 import CategoricalPage from './Components/CategoricalPage.jsx';
 import UpdateCategory from './Components/UpdateCategory.jsx';
+import ReportPage from './ReportPage.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -83,7 +84,11 @@ const router = createBrowserRouter([
         element: <UpdateCategory></UpdateCategory>,
         loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
       },
-      
+      {
+        path:"/report",
+        element:<ReportPage></ReportPage>,
+        loader: () => fetch("http://localhost:5000/product"),
+      },
       {
         path:"CountriesSection",
         element:<CountriesSection></CountriesSection>,
