@@ -1,9 +1,11 @@
 import Swal from 'sweetalert2';
-import {  useParams } from 'react-router-dom';
+import {  useLocation, useNavigate, useParams } from 'react-router-dom';
 
 const UpdateCoffee = () => {
     const {id}= useParams();
     console.log(id);
+    const navigate = useNavigate();
+
 
     const handleUpdateCoffee =event=>{
         event.preventDefault();
@@ -28,7 +30,8 @@ const UpdateCoffee = () => {
             text: "Your data Updated Successfully",
             icon: "Cool"
           });
-        form.reset();
+        // form.reset();    
+        navigate("/mylist");
       }
       })
       
