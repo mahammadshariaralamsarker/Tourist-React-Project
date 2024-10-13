@@ -9,6 +9,7 @@ const ProductPage = () => {
     const loadedUsers = useLoaderData();
     const email = user?.email;
     const [users, setUsers] = useState(loadedUsers);
+    console.log(users);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -86,10 +87,10 @@ const ProductPage = () => {
                         </thead>
                         <tbody>
                             {users.map((item) => (
-                                <tr key={item._id} className="border-t">Product Name
+                                <tr key={item._id} className="border-2 border-gray-100">
 
-                                    <td className="px-4 py-2">{item.productName}</td>
-                                    <td className="px-4 py-2">{item.category}</td>
+                                    {<td className="px-4 py-2">{item.productName}</td>}
+                                    <td className="px-4 py-2 ">{item.category}</td>
                                     <td className="px-4 py-2">{item.cost}</td>
                                     <td className="px-4 py-2 flex justify-around">
                                         <Link to={`/updateproduct/${item._id}`} className="btn bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded">Edit</Link>
@@ -101,6 +102,7 @@ const ProductPage = () => {
                                         </button>
                                     </td>
                                 </tr>
+                                
                             ))}
                         </tbody>
                     </table>

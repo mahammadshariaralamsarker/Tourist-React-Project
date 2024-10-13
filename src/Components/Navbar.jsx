@@ -4,10 +4,11 @@ import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const { logOut, user } = useAuth();
+  
   return (
     <>
       <Tooltip id="my-tooltip" />
-      <div className="navbar ">
+      <div className="navbar">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -28,18 +29,30 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu   z-100 menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu z-100 menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <NavLink className="btn" to="/">
+              <NavLink
+                className={({ isActive }) => `btn ${isActive ? 'bg-blue-500 text-white' : ''}`}
+                to="/"
+              >
                 Home
               </NavLink>
-              <NavLink className="btn mt-3" to="/mylist">
+              <NavLink
+                className={({ isActive }) => `btn mt-3 ${isActive ? 'bg-blue-500 text-white' : ''}`}
+                to="/mylist"
+              >
                 Product
               </NavLink>
-              <NavLink className="btn mt-3" to="/category">
+              <NavLink
+                className={({ isActive }) => `btn mt-3 ${isActive ? 'bg-blue-500 text-white' : ''}`}
+                to="/category"
+              >
                 Category
               </NavLink>
-              <NavLink className="btn mt-3" to="/report">
+              <NavLink
+                className={({ isActive }) => `btn mt-3 ${isActive ? 'bg-blue-500 text-white' : ''}`}
+                to="/report"
+              >
                 Report
               </NavLink>
               <NavLink className="btn mt-3" to="/report">
@@ -47,7 +60,7 @@ const Navbar = () => {
                   <button onClick={logOut}>Logout</button>
                 ) : (
                   <Link to="/signup">
-                    <button className="btn btn-sm  ">Login</button>
+                    <button className="btn btn-sm">Login</button>
                   </Link>
                 )}
               </NavLink>
@@ -58,17 +71,29 @@ const Navbar = () => {
           </NavLink>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal my-4 z-20 px-1 ">
-            <NavLink className="btn mx-4" to="/">
+          <ul className="menu menu-horizontal my-4 z-20 px-1">
+            <NavLink
+              className={({ isActive }) => `btn mx-4 ${isActive ? 'bg-blue-500 text-white' : ''}`}
+              to="/"
+            >
               Home
             </NavLink>
-            <NavLink className="btn mx-2" to="/mylist">
+            <NavLink
+              className={({ isActive }) => `btn mx-2 ${isActive ? 'bg-blue-500 text-white' : ''}`}
+              to="/mylist"
+            >
               Product
             </NavLink>
-            <NavLink className="btn mx-2" to="/category">
+            <NavLink
+              className={({ isActive }) => `btn mx-2 ${isActive ? 'bg-blue-500 text-white' : ''}`}
+              to="/category"
+            >
               Category
             </NavLink>
-            <NavLink className="btn mx-2" to="/report">
+            <NavLink
+              className={({ isActive }) => `btn mx-2 ${isActive ? 'bg-blue-500 text-white' : ''}`}
+              to="/report"
+            >
               Report
             </NavLink>
           </ul>
@@ -83,6 +108,7 @@ const Navbar = () => {
                       user?.photoURL ||
                       "https://i.ibb.co/y0yrnYQ/1681283571946.jpg"
                     }
+                    alt="User Avatar"
                   />
                 </div>
               </label>
@@ -91,12 +117,12 @@ const Navbar = () => {
                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <button className="btn btn-sm  btn-ghost">
+                  <button className="btn btn-sm btn-ghost">
                     {user?.displayName || "user name not found"}
                   </button>
                 </li>
                 <li>
-                  <button onClick={logOut} className="btn btn-sm  btn-ghost">
+                  <button onClick={logOut} className="btn btn-sm btn-ghost">
                     Logout
                   </button>
                 </li>
@@ -105,7 +131,7 @@ const Navbar = () => {
           ) : (
             <div>
               <Link to="/signup">
-                <button className="btn btn-sm  ">Login</button>
+                <button className="btn btn-sm">Login</button>
               </Link>
             </div>
           )}
