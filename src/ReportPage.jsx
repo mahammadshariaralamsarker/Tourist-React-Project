@@ -22,10 +22,11 @@ const ReportPage = () => {
         const formattedToDate = to ? to.toISOString().split('T')[0] : null;
 
         // Fetch data from the server
-        fetch(`http://localhost:5000/product?email=${email}&from=${formattedFromDate}&to=${formattedToDate}`)
+        fetch(`http://localhost:5000/report?email=${email}&from=${formattedFromDate}&to=${formattedToDate}`)
             .then((res) => res.json())
             .then((data) => {
                 setReportData(data);
+                console.log(data);
             })
             .catch((error) => {
                 console.error('Error fetching report data:', error);
@@ -88,7 +89,6 @@ const ReportPage = () => {
                                 <th className="px-4 py-2 border-b">Email</th>
                                 <th className="px-4 py-2 border-b">Category</th>
                                 <th className="px-4 py-2 border-b">Cost</th>
-                                <th className="px-4 py-2 border-b">Date</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -97,7 +97,6 @@ const ReportPage = () => {
                                     <td className="border px-4 py-2">{item.Email}</td>
                                     <td className="border px-4 py-2">{item.category}</td>
                                     <td className="border px-4 py-2">{item.cost}</td>
-                                    <td className="border px-4 py-2">{item.date}</td>
                                 </tr>
                             ))}
                         </tbody>
