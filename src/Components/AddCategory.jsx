@@ -34,25 +34,26 @@ const AddSpot = () => {
     }
     return (
         <form onSubmit={handleAddCoffee}>
-            <h1>this is add Category page </h1>
-            <div className=' bg-[#F4F3F0] p-24'>
-                <div className=' lg:flex justify-between'>
-                    <div className="join w-full m-5 form-control">
+            <div className=' bg-[#F4F3F0] p-24  '>
+                <div className=' lg:flex justify-between '>
+                    <div className="join w-full  form-control m-1">
                         <h1 className='flex items-center mr-4'> Product Name</h1>
-                        <input name='productName' className="input input-bordered join-item flex-1 p-2" placeholder=" Tourists Spot Name" />
+                        <input name='productName' className="box" placeholder=" Tourists Spot Name" />
                     </div>
-                    <div className="join w-full m-5 form-control">
+                    <div className="join w-full  form-control m-1  ">
                         <h1 className='flex items-center mr-4'>Product Cost</h1>
-                        <input name='Cost' className="input p-2  input-bordered join-item flex-1" placeholder="Product Cost " />
+                        <input name='Cost' className="box" placeholder="Product Cost " />
                     </div>
                 </div>
-                <div className=' lg:lg:flex justify-between'>
-                    <div className="join w-full m-5 form-control ">
+                <div className=' lg:flex justify-between '>
+                    <div className="join w-full  form-control m-2">
                         <h1 className='flex items-center mr-4'>Category Name</h1>
-                        <input name='category' className="input input-bordered p-2  join-item flex-1" placeholder="Country Name" />
+                        <input name='category' className="box" placeholder="Category Name" />
                     </div>
                 </div>
-                <input className='btn btn-block bg-primary text-white mx-5' type="submit" value="Add Category" />
+                <div className='flex justify-center '>
+                <input className='box bg-primary text-white w-full m-2 ' type="submit" value="Add Category" />
+                </div>
             </div>
         </form>
     );

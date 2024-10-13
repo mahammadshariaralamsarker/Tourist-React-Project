@@ -78,18 +78,18 @@ const CategorycalPage = () => {
                     <table className="table-auto w-full bg-white shadow-lg rounded-lg">
                         <thead className="bg-gray-200 text-gray-600">
                             <tr>
-                                <th className="px-4 py-2">Product Name</th>
-                                <th className="px-4 py-2">Category</th>
-                                <th className="px-4 py-2">Cost</th>
-                                <th className="px-4 py-2">Actions</th>
+                                <th className="px-4 py-2 b">Product Name</th>
+                                <th className="px-4 py-2 b">Category</th>
+                                <th className="px-4 py-2 b ">Cost</th>
+                                <th className="px-4 py-2 b">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             {users.map((item) => (
-                                <tr key={item._id} className="border-t">
-                                    <td className="px-4 py-2">{item.productName}</td>
-                                    <td className="px-4 py-2">{item.category}</td>
-                                    <td className="px-4 py-2">{item.cost}</td>
+                                <tr key={item._id} className=" b">
+                                    <td className="px-4 py-2 b ">{item.productName}</td>
+                                    <td className="px-4 py-2 b">{item.category}</td>
+                                    <td className="px-4 py-2 b">{item.cost}</td>
                                     <td className="px-4 py-2 flex justify-around">
                                         <Link to={`/updateCategory/${item._id}`} className="btn bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded">Edit</Link>
                                         <button
