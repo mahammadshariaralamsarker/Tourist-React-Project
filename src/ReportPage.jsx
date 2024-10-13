@@ -18,8 +18,9 @@ const ReportPage = () => {
 
     const fetchReportData = (email, from, to) => {
         // Format dates to YYYY-MM-DD
-        const formattedFromDate = from ? from.toISOString().split('T')[0] : null;
-        const formattedToDate = to ? to.toISOString().split('T')[0] : null;
+        const formattedFromDate = from ? from.toISOString() : null;
+        const formattedToDate = to ? to.toISOString(): null;
+        console.log("date", formattedFromDate, formattedToDate);
 
         // Fetch data from the server
         fetch(`http://localhost:5000/report?email=${email}&from=${formattedFromDate}&to=${formattedToDate}`)
